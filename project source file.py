@@ -1,6 +1,38 @@
 import mysql.connector
 import datetime
 from tabulate import tabulate
+
+# Display Project Title and Introduction
+def display_welcome_screen():
+    """Display a welcoming interface with project title and description"""
+    print("\n")
+    print("="*80)
+    print("\t"*15 + "╔" + "═"*46 + "╗")
+    print("\t"*15 + "║" + " "*10 + "PHARMACY MANAGEMENT SYSTEM" + " "*9 + "║")
+    print("\t"*15 + "╚" + "═"*46 + "╝")
+    print("="*80)
+    print("\n")
+    print("\t\t\tWelcome to the Pharmacy Management System!")
+    print("\n")
+    print("\tProject Description:")
+    print("\t" + "-"*70)
+    print("\tThis system is designed to manage pharmacy customer records efficiently.")
+    print("\tFeatures include:")
+    print("\t  • Add and manage customer records")
+    print("\t  • Display customer information and medical history")
+    print("\t  • Track medicine prescriptions and balances")
+    print("\t  • Modify and delete customer records")
+    print("\t  • View last purchase dates and history")
+    print("\n")
+    print("\t" + "-"*70)
+    print("\n")
+    input("\tPress Enter to continue...")
+    print("\n")
+
+# Call the welcome screen
+display_welcome_screen()
+
+# Database Configuration
 db=input("Enter name of database : ")
 mydb=mysql.connector.connect(host="localhost",user="root",password="dstvtush04")
 mycursor=mydb.cursor()
@@ -14,17 +46,20 @@ query="Create table if not exists "+TableName+"(Customer_ID int primary key,Name
 print("Table "+TableName+" fetched successfully")
 mycursor.execute(query)
 while True:
-                print('\n\n\n')
-                print("*_."*45)
-                print('\t\t\t\t\t\t\tMAIN MENU')
-                print("*_."*45)
-                print('\t\t\t\t\t1. Add Customer Record')
-                print('\t\t\t\t\t2. Display Record of all Customers')
-                print('\t\t\t\t\t3. Display Record of particular Customer')
-                print('\t\t\t\t\t4. Delete Record of all Customers')
-                print('\t\t\t\t\t5. Delete Record of Particular Customer')
-                print('\t\t\t\t\t6. Modify Record of  Customer')
-                print('\t\t\t\t\t7. Exit')
+                print('\n\n')
+                print("╔" + "═"*78 + "╗")
+                print("║" + "\t"*27 + "MAIN MENU" + " "*27 + "║")
+                print("╠" + "═"*78 + "╣")
+                print("║" + " "*78 + "║")
+                print("║" + "\t\t1. Add Customer Record" + " "*48 + "║")
+                print("║" + "\t\t2. Display Record of all Customers" + " "*34 + "║")
+                print("║" + "\t\t3. Display Record of particular Customer" + " "*27 + "║")
+                print("║" + "\t\t4. Delete Record of all Customers" + " "*34 + "║")
+                print("║" + "\t\t5. Delete Record of Particular Customer" + " "*27 + "║")
+                print("║" + "\t\t6. Modify Record of Customer" + " "*41 + "║")
+                print("║" + "\t\t7. Exit" + " "*61 + "║")
+                print("║" + " "*78 + "║")
+                print("╚" + "═"*78 + "╝")
                 ch=int(input("Enter your choice : "))
                 if ch==1:
                                 print('Your choice is 1. Add Customer Record')
