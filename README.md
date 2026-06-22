@@ -43,7 +43,7 @@ The system will automatically:
 **Current Configuration:**
 - Host: localhost
 - User: root
-- Password: dstvtush04
+- Password: user123
 
 (Update these in the code if your MySQL credentials are different)
 
